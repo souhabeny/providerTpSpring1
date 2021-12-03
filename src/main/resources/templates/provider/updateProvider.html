@@ -1,10 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Update Provider</title>
+<meta name="viewport" content="width=device-width, initialscale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+	crossorigin="anonymous">
 </head>
 <body>
-
+	<div class="container my-5">
+		<h3 align="center">Update provider</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-8">
+					<form action="#" th:action="@{/provider/update}"
+						th:object="${provider}" method="post">
+						<div class="row">
+							<div class="form-group col-md-6">
+								<label for="label" class="col-formlabel">name</label> <input
+									type="text" th:field="*{name}" class="formcontrol" id="label"
+									placeholder="name" /> <span
+									th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+									class="textdanger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="price" class="col-formlabel">adress</label> <input
+									type="text" th:field="*{address}" class="formcontrol"
+									id="price" placeholder="addresss" /> <span
+									th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+									class="textdanger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<label for="price" class="col-formlabel">name</label> <input
+									type="text" th:field="*{email}" class="formcontrol" id="price"
+									placeholder="email" /> <span
+									th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+									class="textdanger"></span>
+							</div>
+							<div class="form-group col-md-8">
+								<input type="submit" class="btn btn-primary"
+									value="Update provider">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
